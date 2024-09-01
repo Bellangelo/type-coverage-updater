@@ -1,0 +1,28 @@
+{
+    "name": "bellangelo/type-coverage-auto-update",
+    "description": "A tool to auto-update the type coverage of this extension https://github.com/TomasVotruba/type-coverage",
+    "type": "library",
+    "bin": [
+        "bin/type-coverage-update",
+        "bin/type-coverage-update.php"
+    ],
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.10",
+        "phpunit/phpunit": "^11.3"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Bellangelo\\TypeCoverageAutoUpdate\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Aggelos Bellos"
+        }
+    ],
+    "require": {
+        "nette/neon": "^3.4",
+        "symfony/console": "^7.1"
+    }
+}
