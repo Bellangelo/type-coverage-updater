@@ -17,7 +17,7 @@ class PHPStanConfig
      */
     private array $configuration;
 
-    public function __construct(string $configurationFile)
+    public function __construct(private string $configurationFile)
     {
         $this->loadConfiguration($configurationFile);
     }
@@ -116,10 +116,41 @@ class PHPStanConfig
         return $self;
     }
 
+    public function withAnalysis(PHPStanOutput $output): self
+    {
+        $self = clone $this;
+
+        if ($output->hasReturnTypeCoverage()) {
+            $self->configuration['parameters']['type_coverage']['return_type'] = $output->getReturnTypeCoverage();
+        }
+
+        if ($output->hasParameterTypeCoverage()) {
+            $self->configuration['parameters']['type_coverage']['param_type'] = $output->getParameterTypeCoverage();
+        }
+
+        if ($output->hasPropertyTypeCoverage()) {
+            $self->configuration['parameters']['type_coverage']['property_type'] = $output->getPropertyTypeCoverage();
+        }
+
+        if ($output->hasDeclareStrictTypesCoverage()) {
+            $self->configuration['parameters']['type_coverage']['declare'] = $output->getDeclareStrictTypesCoverage();
+        }
+
+        return $self;
+    }
+
     public function toTempFile(): string
     {
-        file_put_contents(self::TEMP_FILE, Neon::encode($this->configuration, true));
+        $this->save(self::TEMP_FILE);
 
         return self::TEMP_FILE;
+    }
+
+    public function save(?string $filename = null): void
+    {
+        file_put_contents(
+            $filename ?? $this->configurationFile,
+            Neon::encode($this->configuration, true)
+        );
     }
 }
