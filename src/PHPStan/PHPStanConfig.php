@@ -116,7 +116,7 @@ class PHPStanConfig
         return $self;
     }
 
-    public function toFile(): string
+    public function toTempFile(): string
     {
         file_put_contents(self::TEMP_FILE, Neon::encode($this->configuration, true));
 

@@ -60,10 +60,10 @@ class PHPStanConfigTest extends TestCase
         $this->assertSame(100.0, $config->getDeclareStrictTypesCoverage());
     }
 
-    public function testToFile(): void
+    public function testToTempFile(): void
     {
         $config = new PHPStanConfig(__DIR__ . '/data/phpstan.neon');
-        $filename = $config->toFile();
+        $filename = $config->toTempFile();
 
         $this->assertFileExists($filename);
         $this->assertSame(
