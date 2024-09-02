@@ -64,43 +64,37 @@ class PHPStanOutput
 
     private function extractParameterTypeCoverage(string $line): ?float
     {
-        $matches = [];
+        $pattern = '/.*Out of (\d+) possible param types, only (\d+) - (\d+\.?\d*)\s*%\s*actually have it\./';
 
-        if (preg_match('/.*Out of (\d+) possible param types, only (\d+) - (\d+\.?\d*)\s*%\s*actually have it\./', $line, $matches)) {
-            return (float) $matches[3];
-        }
-
-        return null;
+        return $this->extractCoverage($pattern, $line);
     }
 
     private function extractReturnTypeCoverage(string $line): ?float
     {
-        $matches = [];
+        $pattern = '/.*Out of (\d+) possible return types, only (\d+) - (\d+\.?\d*)\s*%\s*actually have it\./';
 
-
-        if (preg_match('/.*Out of (\d+) possible return types, only (\d+) - (\d+\.?\d*)\s*%\s*actually have it\./', $line, $matches)) {
-            return (float) $matches[3];
-        }
-
-        return null;
+        return $this->extractCoverage($pattern, $line);
     }
 
     private function extractPropertyTypeCoverage(string $line): ?float
     {
-        $matches = [];
+        $pattern = '/.*Out of (\d+) possible property types, only (\d+) - (\d+\.?\d*)\s*%\s*actually have it\./';
 
-        if (preg_match('/.*Out of (\d+) possible property types, only (\d+) - (\d+\.?\d*)\s*%\s*actually have it\./', $line, $matches)) {
-            return (float) $matches[3];
-        }
-
-        return null;
+        return $this->extractCoverage($pattern, $line);
     }
 
     private function extractDeclareStrictTypesCoverage(string $line): ?float
     {
+        $pattern = '/.*Out of (\d+) possible declare\(strict_types=1\), only (\d+) - (\d+\.?\d*)\s*%\s*actually have it\./';
+
+        return $this->extractCoverage($pattern, $line);
+    }
+
+    private function extractCoverage(string $pattern, string $line): ?float
+    {
         $matches = [];
 
-        if (preg_match('/.*Out of (\d+) possible declare\(strict_types=1\), only (\d+) - (\d+\.?\d*)\s*%\s*actually have it\./', $line, $matches)) {
+        if (preg_match($pattern, $line, $matches)) {
             return (float) $matches[3];
         }
 
