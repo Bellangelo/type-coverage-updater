@@ -10,6 +10,9 @@ use Nette\Neon\Neon;
 
 class PHPStanConfig
 {
+    /**
+     * @var array<mixed>
+     */
     private array $configuration;
 
     public function __construct(string $configurationFile)
@@ -20,7 +23,7 @@ class PHPStanConfig
     private function loadConfiguration(string $configurationFile): void
     {
         try {
-            $configuration = Neon::decodeFile($configurationFile);
+            $configuration = (array) Neon::decodeFile($configurationFile);
         } catch (Exception $e) {
             throw new CouldNotOpenConfigurationFileException($e->getMessage());
         }
