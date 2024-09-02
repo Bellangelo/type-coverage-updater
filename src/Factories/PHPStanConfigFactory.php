@@ -18,7 +18,7 @@ class PHPStanConfigFactory
     {
         $config = $this->getConfigFile();
 
-        if (!$config) {
+        if (is_null($config)) {
             throw new ConfigurationFileDoesNotExistException();
         }
 
