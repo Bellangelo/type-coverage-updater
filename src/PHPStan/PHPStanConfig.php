@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bellangelo\TypeCoverageUpdater;
+namespace Bellangelo\TypeCoverageUpdater\PHPStan;
 
 use Bellangelo\TypeCoverageUpdater\Exceptions\CouldNotOpenConfigurationFileException;
 use Exception;

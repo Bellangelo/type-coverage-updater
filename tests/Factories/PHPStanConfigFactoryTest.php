@@ -6,7 +6,7 @@ namespace Bellangelo\TypeCoverageUpdater\Tests\Factories;
 
 use Bellangelo\TypeCoverageUpdater\Exceptions\ConfigurationFileDoesNotExistException;
 use Bellangelo\TypeCoverageUpdater\Factories\PHPStanConfigFactory;
-use Bellangelo\TypeCoverageUpdater\PHPStanConfig;
+use Bellangelo\TypeCoverageUpdater\PHPStan\PHPStanConfig;
 use PHPUnit\Framework\TestCase;
 
 class PHPStanConfigFactoryTest extends TestCase
@@ -27,7 +27,7 @@ class PHPStanConfigFactoryTest extends TestCase
     public function testHappyPath(): void
     {
         $originalWorkingDirectory = getcwd();
-        chdir(__DIR__ . '/../data/');
+        chdir(__DIR__ . '/../PHPStan/data/');
 
         $factory = new PHPStanConfigFactory();
         $config = $factory->create();

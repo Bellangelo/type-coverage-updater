@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Bellangelo\TypeCoverageUpdater\Tests;
+namespace Bellangelo\TypeCoverageUpdater\Tests\PHPStan;
 
 use Bellangelo\TypeCoverageUpdater\Exceptions\CouldNotOpenConfigurationFileException;
-use Bellangelo\TypeCoverageUpdater\PHPStanConfig;
+use Bellangelo\TypeCoverageUpdater\PHPStan\PHPStanConfig;
 use PHPUnit\Framework\TestCase;
 
 class PHPStanConfigTest extends TestCase

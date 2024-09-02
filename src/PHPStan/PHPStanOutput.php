@@ -1,27 +1,27 @@
 <?php
 
+declare(strict_types=1);
 
-namespace Bellangelo\TypeCoverageUpdater;
+namespace Bellangelo\TypeCoverageUpdater\PHPStan;
 
 class PHPStanOutput
 {
-    private  $parameterTypesCoverage = null;
+    private ?float $parameterTypesCoverage = null;
     private ?float $returnTypesCoverage = null;
     private ?float $propertyTypesCoverage = null;
     private ?float $declareStrictTypesCoverage = null;
 
-    public function __construct($config, string $output)
+    public function __construct(PHPStanConfig $config, string $output)
     {
         $this->parseOutput($config, $output);
     }
 
-    private function parseOutput(PHPStanConfig $config, string $output)
+    private function parseOutput(PHPStanConfig $config, string $output): void
     {
         /** @var array<string> $lines */
         $lines = preg_split("/((\r?\n)|(\r\n?))/", $output);
 
         foreach($lines as $line){
-
             if ($config->hasParameterTypeCoverage() && !$this->hasParameterTypeCoverage()) {
                 $this->parameterTypesCoverage = $this->extractParameterTypeCoverage($line);
 

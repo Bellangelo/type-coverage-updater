@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Bellangelo\TypeCoverageUpdater\Tests;
+namespace Bellangelo\TypeCoverageUpdater\Tests\PHPStan;
 
-use Bellangelo\TypeCoverageUpdater\PHPStanConfig;
-use Bellangelo\TypeCoverageUpdater\PHPStanOutput;
+use Bellangelo\TypeCoverageUpdater\PHPStan\PHPStanConfig;
+use Bellangelo\TypeCoverageUpdater\PHPStan\PHPStanOutput;
 use PHPUnit\Framework\TestCase;
 
 class PHPStanOutputTest extends TestCase
 {
     public function testHappyPath(): void
     {
-        $output = file_get_contents(__DIR__ . '/data/phpstan-output.txt');
+        $output = (string) file_get_contents(__DIR__ . '/data/phpstan-output.txt');
         $config = $this->createMock(PHPStanConfig::class);
         $config->method('hasParameterTypeCoverage')->willReturn(true);
         $config->method('hasReturnTypeCoverage')->willReturn(true);
@@ -33,7 +33,7 @@ class PHPStanOutputTest extends TestCase
 
     public function testConfigDoesNotHaveAllOptions(): void
     {
-        $output = file_get_contents(__DIR__ . '/data/phpstan-output.txt');
+        $output = (string) file_get_contents(__DIR__ . '/data/phpstan-output.txt');
         $config = $this->createMock(PHPStanConfig::class);
         $config->method('hasParameterTypeCoverage')->willReturn(true);
         $config->method('hasReturnTypeCoverage')->willReturn(true);
