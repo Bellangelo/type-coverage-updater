@@ -17,7 +17,7 @@ class AnalyseProcessFactory
             'vendor/bin/phpstan',
             'analyse',
             '--error-format',
-            'json',
+            'raw',
             '--memory-limit',
             self::MEMORY_LIMIT,
             '--level',
@@ -26,6 +26,6 @@ class AnalyseProcessFactory
             $configurationFile,
         ];
 
-        return new Process($command, '', null, null, self::TIMEOUT_IN_SECONDS);
+        return new Process($command, null, null, null, self::TIMEOUT_IN_SECONDS);
     }
 }

@@ -14,7 +14,7 @@ class AnalyseProcessFactoryTest extends TestCase
         $factory = new AnalyseProcessFactory();
         $process = $factory->create('my-config');
 
-        $expected = '\'vendor/bin/phpstan\' \'analyse\' \'--error-format\' \'json\' \'--memory-limit\' \'4G\' \'--level\' \'0\' \'--configuration\' \'my-config\'';
+        $expected = '\'vendor/bin/phpstan\' \'analyse\' \'--error-format\' \'raw\' \'--memory-limit\' \'4G\' \'--level\' \'0\' \'--configuration\' \'my-config\'';
 
         $this->assertSame($expected, $process->getCommandLine());
     }
