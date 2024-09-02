@@ -90,4 +90,27 @@ class PHPStanConfig
     {
         return !is_null($this->getDeclareStrictTypesCoverage());
     }
+
+    public function withRaisedLevels(): self
+    {
+        $self = clone $this;
+
+        if ($self->hasReturnTypeCoverage()) {
+            $self->configuration['parameters']['type_coverage']['return_type'] = 100;
+        }
+
+        if ($self->hasParameterTypeCoverage()) {
+            $self->configuration['parameters']['type_coverage']['param_type'] = 100;
+        }
+
+        if ($self->hasPropertyTypeCoverage()) {
+            $self->configuration['parameters']['type_coverage']['property_type'] = 100;
+        }
+
+        if ($self->hasDeclareStrictTypesCoverage()) {
+            $self->configuration['parameters']['type_coverage']['declare'] = 100;
+        }
+
+        return $self;
+    }
 }

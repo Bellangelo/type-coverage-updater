@@ -44,4 +44,19 @@ class PHPStanConfigTest extends TestCase
         $this->assertSame(5.0, $config->getPropertyTypeCoverage());
         $this->assertSame(1.0, $config->getDeclareStrictTypesCoverage());
     }
+
+    public function testWithRaisedLevels(): void
+    {
+        $config = new PHPStanConfig(__DIR__ . '/data/config-with-missing-values.neon');
+        $config = $config->withRaisedLevels();
+
+        $this->assertFalse($config->hasReturnTypeCoverage());
+        $this->assertTrue($config->hasParameterTypeCoverage());
+        $this->assertTrue($config->hasPropertyTypeCoverage());
+        $this->assertTrue($config->hasDeclareStrictTypesCoverage());
+        $this->assertSame(null, $config->getReturnTypeCoverage());
+        $this->assertSame(100.0, $config->getParameterTypeCoverage());
+        $this->assertSame(100.0, $config->getPropertyTypeCoverage());
+        $this->assertSame(100.0, $config->getDeclareStrictTypesCoverage());
+    }
 }
