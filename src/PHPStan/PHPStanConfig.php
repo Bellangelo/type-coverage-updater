@@ -10,6 +10,8 @@ use Nette\Neon\Neon;
 
 class PHPStanConfig
 {
+    private const string TEMP_FILE = 'phpstan.temp.neon';
+
     /**
      * @var array<mixed>
      */
@@ -112,5 +114,12 @@ class PHPStanConfig
         }
 
         return $self;
+    }
+
+    public function toFile(): string
+    {
+        file_put_contents(self::TEMP_FILE, Neon::encode($this->configuration, true));
+
+        return self::TEMP_FILE;
     }
 }
