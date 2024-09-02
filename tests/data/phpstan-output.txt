@@ -1,0 +1,7 @@
+  -1     Out of 7 possible declare(strict_types=1), only 6 - 85.7 % actually have it. Add more declares to get over 100 %
+  8      Out of 5 possible property types, only 4 - 80.0 % actually have it. Add more property types to get over 100 %
+  8      Property Bellangelo\TypeCoverageAutoUpdate\PHPStanOutput::$parameterTypesCoverage has no type specified.
+  13     Method Bellangelo\TypeCoverageAutoUpdate\PHPStanOutput::__construct() has parameter $config with no type specified.
+  13     Out of 14 possible param types, only 13 - 92.8 % actually have it. Add more param types to get over 100 %
+  18     Method Bellangelo\TypeCoverageAutoUpdate\PHPStanOutput::parseOutput() has no return type specified.
+  18     Out of 28 possible return types, only 27 - 96.4 % actually have it. Add more return types to get over 100 %
