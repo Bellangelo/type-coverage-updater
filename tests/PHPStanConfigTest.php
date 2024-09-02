@@ -25,10 +25,10 @@ class PHPStanConfigTest extends TestCase
         $this->assertTrue($config->hasReturnTypeCoverage());
         $this->assertTrue($config->hasPropertyTypeCoverage());
         $this->assertTrue($config->hasDeclareStrictTypesCoverage());
-        $this->assertSame(7, $config->getParameterTypeCoverage());
-        $this->assertSame(5, $config->getPropertyTypeCoverage());
-        $this->assertSame(3, $config->getReturnTypeCoverage());
-        $this->assertSame(1, $config->getDeclareStrictTypesCoverage());
+        $this->assertSame(7.0, $config->getParameterTypeCoverage());
+        $this->assertSame(5.0, $config->getPropertyTypeCoverage());
+        $this->assertSame(3.0, $config->getReturnTypeCoverage());
+        $this->assertSame(1.0, $config->getDeclareStrictTypesCoverage());
     }
 
     public function testMissingValuesFromFile(): void
@@ -40,8 +40,8 @@ class PHPStanConfigTest extends TestCase
         $this->assertTrue($config->hasPropertyTypeCoverage());
         $this->assertTrue($config->hasDeclareStrictTypesCoverage());
         $this->assertSame(null, $config->getReturnTypeCoverage());
-        $this->assertSame(0, $config->getParameterTypeCoverage());
-        $this->assertSame(5, $config->getPropertyTypeCoverage());
-        $this->assertSame(1, $config->getDeclareStrictTypesCoverage());
+        $this->assertSame(0.0, $config->getParameterTypeCoverage());
+        $this->assertSame(5.0, $config->getPropertyTypeCoverage());
+        $this->assertSame(1.0, $config->getDeclareStrictTypesCoverage());
     }
 }

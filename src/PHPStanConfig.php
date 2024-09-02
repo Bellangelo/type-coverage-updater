@@ -28,7 +28,7 @@ class PHPStanConfig
         $this->configuration = $configuration;
     }
 
-    private function getTypeCoverageParameter(string $typeCoverage): ?int
+    private function getTypeCoverageParameter(string $typeCoverage): ?float
     {
         if (!array_key_exists('parameters', $this->configuration) || !is_array($this->configuration['parameters'])) {
             return null;
@@ -45,25 +45,25 @@ class PHPStanConfig
             return null;
         }
 
-        return (int) $this->configuration['parameters']['type_coverage'][$typeCoverage];
+        return (float) $this->configuration['parameters']['type_coverage'][$typeCoverage];
     }
 
-    public function getReturnTypeCoverage(): ?int
+    public function getReturnTypeCoverage(): ?float
     {
         return $this->getTypeCoverageParameter('return_type');
     }
 
-    public function getParameterTypeCoverage(): ?int
+    public function getParameterTypeCoverage(): ?float
     {
         return $this->getTypeCoverageParameter('param_type');
     }
 
-    public function getPropertyTypeCoverage(): ?int
+    public function getPropertyTypeCoverage(): ?float
     {
         return $this->getTypeCoverageParameter('property_type');
     }
 
-    public function getDeclareStrictTypesCoverage(): ?int
+    public function getDeclareStrictTypesCoverage(): ?float
     {
         return $this->getTypeCoverageParameter('declare');
     }
