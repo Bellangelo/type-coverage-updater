@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.3/phpunit.xsd"
+         backupGlobals="false"
+         colors="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         failOnWarning="true"
+         cacheDirectory=".phpunit.cache"
+         backupStaticProperties="false"
+>
+</phpunit>
