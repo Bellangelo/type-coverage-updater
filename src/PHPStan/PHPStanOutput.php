@@ -47,7 +47,7 @@ class PHPStanOutput
             }
 
             if ($config->hasDeclareStrictTypesCoverage() && !$this->hasDeclareStrictTypesCoverage()) {
-                $this->declareStrictTypesCoverage = $this->declareStrictTypesCoverage($line);
+                $this->declareStrictTypesCoverage = $this->extractDeclareStrictTypesCoverage($line);
             }
 
             // Break early as errors are repeated.
@@ -77,6 +77,7 @@ class PHPStanOutput
     {
         $matches = [];
 
+
         if (preg_match('/.*Out of (\d+) possible return types, only (\d+) - (\d+\.?\d*)\s*%\s*actually have it\./', $line, $matches)) {
             return (float) $matches[3];
         }
@@ -95,7 +96,7 @@ class PHPStanOutput
         return null;
     }
 
-    private function declareStrictTypesCoverage(string $line): ?float
+    private function extractDeclareStrictTypesCoverage(string $line): ?float
     {
         $matches = [];
 
