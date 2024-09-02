@@ -1,0 +1,12 @@
+parameters:
+    level: 8
+
+    paths:
+        - bin
+        - src
+        - tests
+
+    type_coverage:
+        param_type: 0
+        property_type: 5
+        declare: 1

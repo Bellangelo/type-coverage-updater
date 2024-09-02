@@ -48,23 +48,43 @@ class PHPStanConfig
         return (int) $this->configuration['parameters']['type_coverage'][$typeCoverage];
     }
 
+    public function getReturnTypeCoverage(): ?int
+    {
+        return $this->getTypeCoverageParameter('return_type');
+    }
+
+    public function getParameterTypeCoverage(): ?int
+    {
+        return $this->getTypeCoverageParameter('param_type');
+    }
+
+    public function getPropertyTypeCoverage(): ?int
+    {
+        return $this->getTypeCoverageParameter('property_type');
+    }
+
+    public function getDeclareStrictTypesCoverage(): ?int
+    {
+        return $this->getTypeCoverageParameter('declare');
+    }
+
     public function hasReturnTypeCoverage(): bool
     {
-        return $this->getTypeCoverageParameter('return_type') !== null;
+        return !is_null($this->getReturnTypeCoverage());
     }
 
     public function hasParameterTypeCoverage(): bool
     {
-        return $this->getTypeCoverageParameter('param_type') !== null;
+        return !is_null($this->getParameterTypeCoverage());
     }
 
     public function hasPropertyTypeCoverage(): bool
     {
-        return $this->getTypeCoverageParameter('property_type') !== null;
+        return !is_null($this->getPropertyTypeCoverage());
     }
 
     public function hasDeclareStrictTypesCoverage(): bool
     {
-        return $this->getTypeCoverageParameter('declare') !== null;
+        return !is_null($this->getDeclareStrictTypesCoverage());
     }
 }
