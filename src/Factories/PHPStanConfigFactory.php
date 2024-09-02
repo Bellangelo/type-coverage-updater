@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Bellangelo\TypeCoverageAutoUpdate\Factories;
+namespace Bellangelo\TypeCoverageUpdater\Factories;
 
-use Bellangelo\TypeCoverageAutoUpdate\Exceptions\ConfigurationFileDoesNotExistException;
-use Bellangelo\TypeCoverageAutoUpdate\PHPStanConfig;
+use Bellangelo\TypeCoverageUpdater\Exceptions\ConfigurationFileDoesNotExistException;
+use Bellangelo\TypeCoverageUpdater\PHPStanConfig;
 
 class PHPStanConfigFactory
 {

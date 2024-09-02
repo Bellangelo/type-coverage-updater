@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bellangelo\TypeCoverageAutoUpdate\Factories;
+namespace Bellangelo\TypeCoverageUpdater\Factories;
 
 use Symfony\Component\Process\Process;
 

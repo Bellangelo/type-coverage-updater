@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Bellangelo\TypeCoverageAutoUpdate\Tests\Factories;
+namespace Bellangelo\TypeCoverageUpdater\Tests\Factories;
 
-use Bellangelo\TypeCoverageAutoUpdate\Exceptions\ConfigurationFileDoesNotExistException;
-use Bellangelo\TypeCoverageAutoUpdate\Factories\PHPStanConfigFactory;
-use Bellangelo\TypeCoverageAutoUpdate\PHPStanConfig;
+use Bellangelo\TypeCoverageUpdater\Exceptions\ConfigurationFileDoesNotExistException;
+use Bellangelo\TypeCoverageUpdater\Factories\PHPStanConfigFactory;
+use Bellangelo\TypeCoverageUpdater\PHPStanConfig;
 use PHPUnit\Framework\TestCase;
 
 class PHPStanConfigFactoryTest extends TestCase

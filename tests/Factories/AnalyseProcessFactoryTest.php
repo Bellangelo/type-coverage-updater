@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Bellangelo\TypeCoverageAutoUpdate\Tests\Factories;
+namespace Bellangelo\TypeCoverageUpdater\Tests\Factories;
 
-use Bellangelo\TypeCoverageAutoUpdate\Factories\AnalyseProcessFactory;
+use Bellangelo\TypeCoverageUpdater\Factories\AnalyseProcessFactory;
 use PHPUnit\Framework\TestCase;
 
 class AnalyseProcessFactoryTest extends TestCase

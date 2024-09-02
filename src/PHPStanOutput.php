@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Bellangelo\TypeCoverageAutoUpdate;
+namespace Bellangelo\TypeCoverageUpdater;
 
 class PHPStanOutput
 {

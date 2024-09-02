@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Bellangelo\TypeCoverageAutoUpdate\Commands\UpdateCommand;
+use Bellangelo\TypeCoverageUpdater\Commands\UpdateCommand;
 use Symfony\Component\Console\Application;
 
 require_once __DIR__ . '/../vendor/autoload.php';

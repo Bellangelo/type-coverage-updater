@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Bellangelo\TypeCoverageAutoUpdate\Tests;
+namespace Bellangelo\TypeCoverageUpdater\Tests;
 
-use Bellangelo\TypeCoverageAutoUpdate\PHPStanConfig;
-use Bellangelo\TypeCoverageAutoUpdate\PHPStanOutput;
+use Bellangelo\TypeCoverageUpdater\PHPStanConfig;
+use Bellangelo\TypeCoverageUpdater\PHPStanOutput;
 use PHPUnit\Framework\TestCase;
 
 class PHPStanOutputTest extends TestCase

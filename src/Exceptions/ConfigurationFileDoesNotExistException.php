@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bellangelo\TypeCoverageAutoUpdate\Exceptions;
+namespace Bellangelo\TypeCoverageUpdater\Exceptions;
 
 use Exception;
 

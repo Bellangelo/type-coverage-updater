@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Bellangelo\TypeCoverageAutoUpdate;
+namespace Bellangelo\TypeCoverageUpdater;
 
-use Bellangelo\TypeCoverageAutoUpdate\Exceptions\CouldNotOpenConfigurationFileException;
+use Bellangelo\TypeCoverageUpdater\Exceptions\CouldNotOpenConfigurationFileException;
 use Exception;
 use Nette\Neon\Neon;
 

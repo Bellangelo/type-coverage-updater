@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Bellangelo\TypeCoverageAutoUpdate\Commands;
+namespace Bellangelo\TypeCoverageUpdater\Commands;
 
-use Bellangelo\TypeCoverageAutoUpdate\Factories\AnalyseProcessFactory;
-use Bellangelo\TypeCoverageAutoUpdate\Factories\PHPStanConfigFactory;
-use Bellangelo\TypeCoverageAutoUpdate\PHPStanOutput;
+use Bellangelo\TypeCoverageUpdater\Factories\AnalyseProcessFactory;
+use Bellangelo\TypeCoverageUpdater\Factories\PHPStanConfigFactory;
+use Bellangelo\TypeCoverageUpdater\PHPStanOutput;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

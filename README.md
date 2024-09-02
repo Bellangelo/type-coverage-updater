@@ -1,2 +1,3 @@
-# Type Coverage Auto-Update
-A Github Action to auto-update the type coverage of this extension https://github.com/TomasVotruba/type-coverage
+# Type Coverage Updater
+A helper script that helps you to auto-update the type coverage of this extension [Require Minimal Type Coverage
+](https://github.com/TomasVotruba/type-coverage)

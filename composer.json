@@ -3,8 +3,8 @@
     "description": "A tool to auto-update the type coverage of this extension https://github.com/TomasVotruba/type-coverage",
     "type": "library",
     "bin": [
-        "bin/type-coverage-update",
-        "bin/type-coverage-update.php"
+        "bin/type-coverage-updater",
+        "bin/type-coverage-updater.php"
     ],
     "scripts": {
         "phpcs": "./vendor/bin/phpcs --standard=PSR12 src tests",
@@ -22,8 +22,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Bellangelo\\TypeCoverageAutoUpdate\\": "src/",
-            "Bellangelo\\TypeCoverageAutoUpdate\\Tests\\": "tests/"
+            "Bellangelo\\TypeCoverageUpdater\\": "src/",
+            "Bellangelo\\TypeCoverageUpdater\\Tests\\": "tests/"
         }
     },
     "authors": [
