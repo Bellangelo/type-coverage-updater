@@ -23,12 +23,24 @@ class UpdateCommand extends Command
     {
         $output->writeln('Finding configuration...');
 
-        $config = (new PHPStanConfigFactory())->create();
-        $process = (new AnalyseProcessFactory())->create(__DIR__ . '/../../phpstan.neon');
+        $configurationFactory = new PHPStanConfigFactory();
+        $originalConfiguration = $configurationFactory->create();
 
+        $output->writeln('Generating PHPStan temporarily configuration...');
+
+        $configurationWithRaisedLevels = $originalConfiguration->withRaisedLevels();
+        $temporaryConfigurationFile = $configurationWithRaisedLevels->toTempFile();
+
+        $output->writeln('Running PHPStan...');
+
+        $process = (new AnalyseProcessFactory())->create($temporaryConfigurationFile);
         $process->run();
 
-        $output = new PHPStanOutput($config, $process->getOutput());
+        $output->writeln('Analysing PHPStan output...');
+
+        $output = new PHPStanOutput($originalConfiguration, $process->getOutput());
+
+        unlink($temporaryConfigurationFile);
 
         return Command::SUCCESS;
     }

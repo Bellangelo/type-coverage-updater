@@ -21,7 +21,7 @@ class PHPStanOutput
         /** @var array<string> $lines */
         $lines = preg_split("/((\r?\n)|(\r\n?))/", $output);
 
-        foreach($lines as $line){
+        foreach ($lines as $line) {
             if ($config->hasParameterTypeCoverage() && !$this->hasParameterTypeCoverage()) {
                 $this->parameterTypesCoverage = $this->extractParameterTypeCoverage($line);
 
