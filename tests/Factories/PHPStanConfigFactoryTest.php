@@ -13,10 +13,15 @@ class PHPStanConfigFactoryTest extends TestCase
 {
     public function testCouldNotFindConfigFile(): void
     {
+        $originalWorkingDirectory = getcwd();
+        chdir(__DIR__);
+
         $this->expectException(ConfigurationFileDoesNotExistException::class);
 
         $factory = new PHPStanConfigFactory();
         $factory->create();
+
+        chdir($originalWorkingDirectory);
     }
 
     public function testHappyPath(): void
