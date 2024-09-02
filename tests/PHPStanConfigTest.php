@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Bellangelo\TypeCoverageAutoUpdate\Tests;
 
-use Bellangelo\TypeCoverageAutoUpdate\Exceptions\CouldNotOpenConfigurationFile;
+use Bellangelo\TypeCoverageAutoUpdate\Exceptions\CouldNotOpenConfigurationFileException;
 use Bellangelo\TypeCoverageAutoUpdate\PHPStanConfig;
 use PHPUnit\Framework\TestCase;
 
@@ -12,14 +12,14 @@ class PHPStanConfigTest extends TestCase
 {
     public function testConfigurationFileDoesNotExist(): void
     {
-        $this->expectException(CouldNotOpenConfigurationFile::class);
+        $this->expectException(CouldNotOpenConfigurationFileException::class);
 
         new PHPStanConfig('a-file-that-does-not-exist.neon');
     }
 
     public function testCanReadTypeCoverageFromFile(): void
     {
-        $config = new PHPStanConfig(__DIR__ . '/data/config-with-all-values.neon');
+        $config = new PHPStanConfig(__DIR__ . '/data/phpstan.neon');
 
         $this->assertTrue($config->hasParameterTypeCoverage());
         $this->assertTrue($config->hasReturnTypeCoverage());

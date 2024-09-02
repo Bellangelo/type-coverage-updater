@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Bellangelo\TypeCoverageAutoUpdate;
 
-use Bellangelo\TypeCoverageAutoUpdate\Exceptions\CouldNotOpenConfigurationFile;
+use Bellangelo\TypeCoverageAutoUpdate\Exceptions\CouldNotOpenConfigurationFileException;
 use Exception;
 use Nette\Neon\Neon;
 
@@ -22,7 +22,7 @@ class PHPStanConfig
         try {
             $configuration = Neon::decodeFile($configurationFile);
         } catch (Exception $e) {
-            throw new CouldNotOpenConfigurationFile($e->getMessage());
+            throw new CouldNotOpenConfigurationFileException($e->getMessage());
         }
 
         $this->configuration = $configuration;
