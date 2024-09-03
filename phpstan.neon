@@ -1,16 +1,16 @@
 includes:
-    - vendor/tomasvotruba/type-coverage/config/extension.neon
+	- vendor/tomasvotruba/type-coverage/config/extension.neon
 
 parameters:
-    level: 9
+	level: 9
+	paths:
+		- bin
+		- src
+		- tests
 
-    paths:
-        - bin
-        - src
-        - tests
+	type_coverage:
+		param_type: 100
+		property_type: 100
+		return_type: 100
+		declare: 100
 
-    type_coverage:
-        param_type: 100
-        property_type: 100
-        return_type: 100
-        declare: 100

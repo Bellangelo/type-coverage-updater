@@ -38,9 +38,17 @@ class UpdateCommand extends Command
 
         $output->writeln('Analysing PHPStan output...');
 
-        $output = new PHPStanOutput($originalConfiguration, $process->getOutput());
+        $analysisOutput = new PHPStanOutput($originalConfiguration, $process->getOutput());
+
+        $output->writeln('Updating configuration...');
+
+        $originalConfiguration->withAnalysis($analysisOutput)->save();
+
+        $output->writeln('Cleaning up...');
 
         unlink($temporaryConfigurationFile);
+
+        $output->writeln('Done!');
 
         return Command::SUCCESS;
     }
