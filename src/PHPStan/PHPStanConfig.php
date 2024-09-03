@@ -122,18 +122,26 @@ class PHPStanConfig
 
         if ($output->hasReturnTypeCoverage()) {
             $self->configuration['parameters']['type_coverage']['return_type'] = $output->getReturnTypeCoverage();
+        } elseif ($self->hasReturnTypeCoverage()) {
+            $self->configuration['parameters']['type_coverage']['return_type'] = 100.0;
         }
 
         if ($output->hasParameterTypeCoverage()) {
             $self->configuration['parameters']['type_coverage']['param_type'] = $output->getParameterTypeCoverage();
+        } elseif ($self->hasParameterTypeCoverage()) {
+            $self->configuration['parameters']['type_coverage']['param_type'] = 100.0;
         }
 
         if ($output->hasPropertyTypeCoverage()) {
             $self->configuration['parameters']['type_coverage']['property_type'] = $output->getPropertyTypeCoverage();
+        } elseif ($self->hasPropertyTypeCoverage()) {
+            $self->configuration['parameters']['type_coverage']['property_type'] = 100.0;
         }
 
         if ($output->hasDeclareStrictTypesCoverage()) {
             $self->configuration['parameters']['type_coverage']['declare'] = $output->getDeclareStrictTypesCoverage();
+        } elseif ($self->hasDeclareStrictTypesCoverage()) {
+            $self->configuration['parameters']['type_coverage']['declare'] = 100.0;
         }
 
         return $self;
