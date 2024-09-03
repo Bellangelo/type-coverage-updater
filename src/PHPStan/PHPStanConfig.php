@@ -13,7 +13,9 @@ class PHPStanConfig
     private const string TEMP_FILE = 'phpstan.temp.neon';
 
     /**
-     * @var array<mixed>
+     * @var array{
+     *     parameters?: array<string, array>
+     * }
      */
     private array $configuration;
 
