@@ -1,0 +1,96 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Property Bellangelo\\\\TypeCoverageUpdater\\\\PHPStan\\\\PHPStanConfig\\:\\:\\$configuration \\(array\\{parameters\\?\\: array\\<string, array\\>\\}\\) does not accept array\\.$#"
+			count: 1
+			path: src/PHPStan/PHPStanConfig.php
+
+		-
+			message: "#^Property Bellangelo\\\\TypeCoverageUpdater\\\\PHPStan\\\\PHPStanConfig\\:\\:\\$configuration type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/PHPStan/PHPStanConfig.php
+
+		-
+			message: "#^Call to an undefined method Bellangelo\\\\TypeCoverageUpdater\\\\Commands\\\\UpdateCommand\\:\\:method\\(\\)\\.$#"
+			count: 1
+			path: tests/Commands/UpdateCommandTest.php
+
+		-
+			message: "#^Method Bellangelo\\\\TypeCoverageUpdater\\\\Tests\\\\Commands\\\\UpdateCommandTest\\:\\:getProjects\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Commands/UpdateCommandTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$directory of function chdir expects string, string\\|false given\\.$#"
+			count: 1
+			path: tests/Commands/UpdateCommandTest.php
+
+		-
+			message: "#^Method Bellangelo\\\\TypeCoverageUpdater\\\\Tests\\\\Commands\\\\data\\\\project1\\\\Project\\:\\:getSomethingElse\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Commands/data/project1/Project.php
+
+		-
+			message: "#^Method Bellangelo\\\\TypeCoverageUpdater\\\\Tests\\\\Commands\\\\data\\\\project1\\\\Project\\:\\:getSomethingElse\\(\\) has parameter \\$something with no type specified\\.$#"
+			count: 1
+			path: tests/Commands/data/project1/Project.php
+
+		-
+			message: "#^Method Bellangelo\\\\TypeCoverageUpdater\\\\Tests\\\\Commands\\\\data\\\\project1\\\\Project\\:\\:getSomethingElseElse\\(\\) has parameter \\$else with no type specified\\.$#"
+			count: 1
+			path: tests/Commands/data/project1/Project.php
+
+		-
+			message: "#^Method Bellangelo\\\\TypeCoverageUpdater\\\\Tests\\\\Commands\\\\data\\\\project1\\\\Project\\:\\:getSomethingElseElse\\(\\) has parameter \\$other with no type specified\\.$#"
+			count: 1
+			path: tests/Commands/data/project1/Project.php
+
+		-
+			message: "#^Method Bellangelo\\\\TypeCoverageUpdater\\\\Tests\\\\Commands\\\\data\\\\project1\\\\Project\\:\\:getSomethingElseElse\\(\\) has parameter \\$something with no type specified\\.$#"
+			count: 1
+			path: tests/Commands/data/project1/Project.php
+
+		-
+			message: "#^Out of 15 possible declare\\(strict_types\\=1\\), only 14 \\- 93\\.3 %% actually have it\\. Add more declares to get over 100 %%$#"
+			count: 1
+			path: tests/Commands/data/project1/Project.php
+
+		-
+			message: "#^Out of 29 possible param types, only 25 \\- 86\\.2 %% actually have it\\. Add more param types to get over 100 %%$#"
+			count: 4
+			path: tests/Commands/data/project1/Project.php
+
+		-
+			message: "#^Out of 54 possible return types, only 53 \\- 98\\.1 %% actually have it\\. Add more return types to get over 100 %%$#"
+			count: 1
+			path: tests/Commands/data/project1/Project.php
+
+		-
+			message: "#^Out of 8 possible property types, only 7 \\- 87\\.5 %% actually have it\\. Add more property types to get over 100 %%$#"
+			count: 1
+			path: tests/Commands/data/project1/Project.php
+
+		-
+			message: "#^Property Bellangelo\\\\TypeCoverageUpdater\\\\Tests\\\\Commands\\\\data\\\\project1\\\\Project\\:\\:\\$other is unused\\.$#"
+			count: 1
+			path: tests/Commands/data/project1/Project.php
+
+		-
+			message: "#^Property Bellangelo\\\\TypeCoverageUpdater\\\\Tests\\\\Commands\\\\data\\\\project1\\\\Project\\:\\:\\$otherOfOther has no type specified\\.$#"
+			count: 1
+			path: tests/Commands/data/project1/Project.php
+
+		-
+			message: "#^Property Bellangelo\\\\TypeCoverageUpdater\\\\Tests\\\\Commands\\\\data\\\\project1\\\\Project\\:\\:\\$otherOfOther is unused\\.$#"
+			count: 1
+			path: tests/Commands/data/project1/Project.php
+
+		-
+			message: "#^Property Bellangelo\\\\TypeCoverageUpdater\\\\Tests\\\\Commands\\\\data\\\\project2\\\\Project\\:\\:\\$other is unused\\.$#"
+			count: 1
+			path: tests/Commands/data/project2/Project.php
+
+		-
+			message: "#^Parameter \\#1 \\$directory of function chdir expects string, string\\|false given\\.$#"
+			count: 2
+			path: tests/Factories/PHPStanConfigFactoryTest.php
