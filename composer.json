@@ -1,6 +1,6 @@
 {
     "name": "bellangelo/type-coverage-updater",
-    "description": "A tool to auto-update the type coverage of this extension https://github.com/TomasVotruba/type-coverage",
+    "description": "A tool to auto-update the type coverage of this Tomas's Type Coverage extension https://github.com/TomasVotruba/type-coverage",
     "type": "library",
     "bin": [
         "bin/type-coverage-updater",
