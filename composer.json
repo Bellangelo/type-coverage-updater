@@ -28,7 +28,8 @@
     },
     "authors": [
         {
-            "name": "Aggelos Bellos"
+            "name": "Aggelos Bellos",
+            "email": "aggelosbellos7@gmail.com"
         }
     ],
     "require": {
