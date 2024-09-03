@@ -1,0 +1,14 @@
+includes:
+	- ../../../../vendor/tomasvotruba/type-coverage/config/extension.neon
+
+parameters:
+	level: 9
+	paths:
+		- Project.php
+
+	type_coverage:
+		param_type: 100.0
+		property_type: 100.0
+		return_type: 100.0
+		declare: 100.0
+
