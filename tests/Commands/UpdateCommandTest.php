@@ -63,9 +63,11 @@ class UpdateCommandTest extends TestCase
         copy(__DIR__ . '/data/phpstan.neon', $workingDirectory . '/phpstan.neon');
 
         $command = $this->getCommand();
-        $command->method('runAnalysisProcess')->willReturnCallback(function (string $temporaryConfigurationFile): Process {
-            return $this->getProcess($temporaryConfigurationFile);
-        });
+        $command->method('runAnalysisProcess')->willReturnCallback(
+            function (string $temporaryConfigurationFile): Process {
+                return $this->getProcess($temporaryConfigurationFile);
+            }
+        );
         $commandTester = new CommandTester($command);
 
         $commandTester->execute([]);

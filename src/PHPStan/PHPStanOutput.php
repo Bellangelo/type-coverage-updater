@@ -85,6 +85,7 @@ class PHPStanOutput
 
     private function extractDeclareStrictTypesCoverage(string $line): ?float
     {
+        // phpcs:ignore Generic.Files.LineLength
         $pattern = '/.*Out of (\d+) possible declare\(strict_types=1\), only (\d+) - (\d+\.?\d*)\s*%\s*actually have it\./';
 
         return $this->extractCoverage($pattern, $line);
