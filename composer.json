@@ -9,7 +9,7 @@
     "scripts": {
         "phpcs": "./vendor/bin/phpcs --standard=PSR12 src tests",
         "phpcs:fix": "./vendor/bin/phpcbf --standard=PSR12 src tests",
-        "phpstan": "./vendor/bin/phpstan analyse src -c phpstan.neon",
+        "phpstan": "./vendor/bin/phpstan analyse -c phpstan.neon",
         "tests": "./vendor/bin/phpunit tests",
         "docker:shell": "docker run --rm --interactive --tty --volume $PWD:/app composer /bin/sh"
     },
