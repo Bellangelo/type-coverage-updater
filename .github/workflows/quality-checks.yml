@@ -1,0 +1,65 @@
+name: Quality Checks
+
+on:
+  workflow_dispatch: {}
+
+  pull_request: {}
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  phpcs:
+    name: CodeSniffer
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.3
+          coverage: none
+
+      - uses: ramsey/composer-install@v2
+
+      - name: Run PHP CodeSniffer
+        run: composer run phpcs
+
+  stan:
+    name: PHP Stan
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          coverage: none
+
+      - uses: ramsey/composer-install@v2
+
+      - name: Run PHP Stan
+        run: composer run phpstan
+
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          coverage: none
+
+      - uses: ramsey/composer-install@v2
+
+      - name: Run PHPUnit
+        run: composer run tests
