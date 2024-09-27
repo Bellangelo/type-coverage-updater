@@ -14,7 +14,8 @@ jobs:
       -   uses: ./.github/actions/downgrade
 
       # clear the dev files
-      -   run: find . ! -name 'bin' ! -name 'src' ! -name 'vendor' ! -name 'composer.json' ! -name 'composer.lock' ! -name 'README.md' -mindepth 1 -delete
+      -   run: find . -type f ! -name 'bin' ! -name 'src' ! -name 'vendor' ! -name 'composer.json' ! -name 'composer.lock' ! -name 'README.md' ! -name 'vendor' -mindepth 1 -delete
+      -   run: find . -type d -empty -delete
 
       # setup git user
       -   run: |
