@@ -12,6 +12,7 @@
         "phpstan": "./vendor/bin/phpstan analyse -c phpstan.neon",
         "tests": "./vendor/bin/phpunit tests",
         "finalise-classes": "vendor/bin/swiss-knife finalize-classes src tests --skip-mocked",
+        "rector": "vendor/bin/rector process --config rector.php",
         "docker:shell": "docker run --rm --interactive --tty --volume $PWD:/app composer /bin/sh"
     },
     "require-dev": {
@@ -36,6 +37,7 @@
         }
     ],
     "require": {
+        "php": "^8.3",
         "nette/neon": "^3.4",
         "symfony/console": "^7.1",
         "symfony/process": "7.0.*"
