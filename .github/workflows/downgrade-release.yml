@@ -1,0 +1,45 @@
+name: Downgraded Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  downgrade_release:
+    runs-on: ubuntu-latest
+
+    steps:
+      -   uses: actions/checkout@v2
+
+      -   uses: shivammathur/setup-php@v2
+          with:
+            php-version: 8.3
+            coverage: none
+
+      -   uses: ramsey/composer-install@v2
+
+      # downgrade /src to PHP 7.4
+      -   run: vendor/bin/rector process src bin --config build/rector-downgrade-php-74.php --ansi
+
+      # copy PHP 7.4 composer
+      -   run: cp build/composer-php-74.json composer.json
+
+      # clear the dev files
+      -   run: find . ! -name 'bin' ! -name 'src' ! -name 'vendor' ! -name 'composer.json' ! -name 'composer.lock' ! -name 'README.md' -mindepth 1 -delete
+
+      # setup git user
+      -   run: |
+            git config user.email "action@github.com"
+            git config user.name "GitHub Action"
+
+      # publish to the same repository with a new tag
+      -   name: "Tag Downgraded Code"
+          run: |
+            # separate a "git add" to add untracked (new) files too
+            git add --all
+            git commit -m "Release PHP 7.4 downgraded"
+            
+            # force push tag, so there is only 1 version
+            git tag "${GITHUB_REF#refs/tags/}" --force
+            git push origin "${GITHUB_REF#refs/tags/}" --force
