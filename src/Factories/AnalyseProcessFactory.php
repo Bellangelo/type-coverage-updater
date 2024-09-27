@@ -9,6 +9,7 @@ use Symfony\Component\Process\Process;
 final class AnalyseProcessFactory
 {
     private const string MEMORY_LIMIT = '4G';
+
     private const int TIMEOUT_IN_SECONDS = 600;
 
     public function create(string $configurationFile): Process

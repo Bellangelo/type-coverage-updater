@@ -18,8 +18,8 @@ final class PHPStanConfigFactoryTest extends TestCase
 
         $this->expectException(ConfigurationFileDoesNotExistException::class);
 
-        $factory = new PHPStanConfigFactory();
-        $factory->create();
+        $phpStanConfigFactory = new PHPStanConfigFactory();
+        $phpStanConfigFactory->create();
 
         chdir($originalWorkingDirectory);
     }
@@ -29,10 +29,10 @@ final class PHPStanConfigFactoryTest extends TestCase
         $originalWorkingDirectory = getcwd();
         chdir(__DIR__ . '/../PHPStan/data/');
 
-        $factory = new PHPStanConfigFactory();
-        $config = $factory->create();
+        $phpStanConfigFactory = new PHPStanConfigFactory();
+        $phpStanConfig = $phpStanConfigFactory->create();
 
-        $this->assertInstanceOf(PHPStanConfig::class, $config);
+        $this->assertInstanceOf(PHPStanConfig::class, $phpStanConfig);
 
         chdir($originalWorkingDirectory);
     }

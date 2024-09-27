@@ -20,30 +20,30 @@ final class PHPStanConfigTest extends TestCase
 
     public function testCanReadTypeCoverageFromFile(): void
     {
-        $config = new PHPStanConfig(__DIR__ . '/data/phpstan.neon');
+        $phpStanConfig = new PHPStanConfig(__DIR__ . '/data/phpstan.neon');
 
-        $this->assertTrue($config->hasParameterTypeCoverage());
-        $this->assertTrue($config->hasReturnTypeCoverage());
-        $this->assertTrue($config->hasPropertyTypeCoverage());
-        $this->assertTrue($config->hasDeclareStrictTypesCoverage());
-        $this->assertSame(7.0, $config->getParameterTypeCoverage());
-        $this->assertSame(5.0, $config->getPropertyTypeCoverage());
-        $this->assertSame(3.0, $config->getReturnTypeCoverage());
-        $this->assertSame(1.0, $config->getDeclareStrictTypesCoverage());
+        $this->assertTrue($phpStanConfig->hasParameterTypeCoverage());
+        $this->assertTrue($phpStanConfig->hasReturnTypeCoverage());
+        $this->assertTrue($phpStanConfig->hasPropertyTypeCoverage());
+        $this->assertTrue($phpStanConfig->hasDeclareStrictTypesCoverage());
+        $this->assertSame(7.0, $phpStanConfig->getParameterTypeCoverage());
+        $this->assertSame(5.0, $phpStanConfig->getPropertyTypeCoverage());
+        $this->assertSame(3.0, $phpStanConfig->getReturnTypeCoverage());
+        $this->assertSame(1.0, $phpStanConfig->getDeclareStrictTypesCoverage());
     }
 
     public function testMissingValuesFromFile(): void
     {
-        $config = new PHPStanConfig(__DIR__ . '/data/config-with-missing-values.neon');
+        $phpStanConfig = new PHPStanConfig(__DIR__ . '/data/config-with-missing-values.neon');
 
-        $this->assertFalse($config->hasReturnTypeCoverage());
-        $this->assertTrue($config->hasParameterTypeCoverage());
-        $this->assertTrue($config->hasPropertyTypeCoverage());
-        $this->assertTrue($config->hasDeclareStrictTypesCoverage());
-        $this->assertSame(null, $config->getReturnTypeCoverage());
-        $this->assertSame(0.0, $config->getParameterTypeCoverage());
-        $this->assertSame(5.0, $config->getPropertyTypeCoverage());
-        $this->assertSame(1.0, $config->getDeclareStrictTypesCoverage());
+        $this->assertFalse($phpStanConfig->hasReturnTypeCoverage());
+        $this->assertTrue($phpStanConfig->hasParameterTypeCoverage());
+        $this->assertTrue($phpStanConfig->hasPropertyTypeCoverage());
+        $this->assertTrue($phpStanConfig->hasDeclareStrictTypesCoverage());
+        $this->assertSame(null, $phpStanConfig->getReturnTypeCoverage());
+        $this->assertSame(0.0, $phpStanConfig->getParameterTypeCoverage());
+        $this->assertSame(5.0, $phpStanConfig->getPropertyTypeCoverage());
+        $this->assertSame(1.0, $phpStanConfig->getDeclareStrictTypesCoverage());
     }
 
     public function testWithRaisedLevels(): void
@@ -63,8 +63,8 @@ final class PHPStanConfigTest extends TestCase
 
     public function testToTempFile(): void
     {
-        $config = new PHPStanConfig(__DIR__ . '/data/phpstan.neon');
-        $filename = $config->toTempFile();
+        $phpStanConfig = new PHPStanConfig(__DIR__ . '/data/phpstan.neon');
+        $filename = $phpStanConfig->toTempFile();
 
         $this->assertFileExists($filename);
         $this->assertSame(

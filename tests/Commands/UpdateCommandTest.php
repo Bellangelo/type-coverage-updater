@@ -13,13 +13,13 @@ final class UpdateCommandTest extends TestCase
 {
     private function getCommand(): UpdateCommand
     {
-        $command = $this
+        $mock = $this
             ->getMockBuilder(UpdateCommand::class)
             ->enableOriginalConstructor()
             ->onlyMethods(['runAnalysisProcess'])
             ->getMock();
 
-        return $command;
+        return $mock;
     }
 
     private function getProcess(string $configurationFile): Process
@@ -62,13 +62,11 @@ final class UpdateCommandTest extends TestCase
 
         copy(__DIR__ . '/data/phpstan.neon', $workingDirectory . '/phpstan.neon');
 
-        $command = $this->getCommand();
-        $command->method('runAnalysisProcess')->willReturnCallback(
-            function (string $temporaryConfigurationFile): Process {
-                return $this->getProcess($temporaryConfigurationFile);
-            }
+        $updateCommand = $this->getCommand();
+        $updateCommand->method('runAnalysisProcess')->willReturnCallback(
+            fn(string $temporaryConfigurationFile): Process => $this->getProcess($temporaryConfigurationFile)
         );
-        $commandTester = new CommandTester($command);
+        $commandTester = new CommandTester($updateCommand);
 
         $commandTester->execute([]);
 

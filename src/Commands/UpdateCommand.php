@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Bellangelo\TypeCoverageUpdater\Commands;
 
+use Override;
 use Bellangelo\TypeCoverageUpdater\Factories\AnalyseProcessFactory;
 use Bellangelo\TypeCoverageUpdater\Factories\PHPStanConfigFactory;
 use Bellangelo\TypeCoverageUpdater\PHPStan\PHPStanOutput;
@@ -14,20 +15,22 @@ use Symfony\Component\Process\Process;
 
 class UpdateCommand extends Command
 {
+    #[Override]
     protected function configure(): void
     {
         $this->setName('update');
         $this->setDescription('Update the type coverage in the neon file.');
     }
 
+    #[Override]
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('Finding configuration...');
-        $configurationFactory = new PHPStanConfigFactory();
-        $originalConfiguration = $configurationFactory->create();
+        $phpStanConfigFactory = new PHPStanConfigFactory();
+        $phpStanConfig = $phpStanConfigFactory->create();
 
         $output->writeln('Generating PHPStan temporarily configuration...');
-        $configurationWithRaisedLevels = $originalConfiguration->withRaisedLevels();
+        $configurationWithRaisedLevels = $phpStanConfig->withRaisedLevels();
         $temporaryConfigurationFile = $configurationWithRaisedLevels->toTempFile();
 
         $output->writeln('Running PHPStan...');
@@ -35,10 +38,10 @@ class UpdateCommand extends Command
 
         $output->writeln('Analysing PHPStan output...');
 
-        $analysisOutput = new PHPStanOutput($originalConfiguration, $process->getOutput());
+        $phpStanOutput = new PHPStanOutput($phpStanConfig, $process->getOutput());
 
         $output->writeln('Updating configuration...');
-        $originalConfiguration->withAnalysis($analysisOutput)->save();
+        $phpStanConfig->withAnalysis($phpStanOutput)->save();
 
         $output->writeln('Cleaning up...');
         unlink($temporaryConfigurationFile);

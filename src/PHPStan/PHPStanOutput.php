@@ -7,22 +7,25 @@ namespace Bellangelo\TypeCoverageUpdater\PHPStan;
 class PHPStanOutput
 {
     private ?float $parameterTypesCoverage = null;
+
     private ?float $returnTypesCoverage = null;
+
     private ?float $propertyTypesCoverage = null;
+
     private ?float $declareStrictTypesCoverage = null;
 
-    public function __construct(PHPStanConfig $config, string $output)
+    public function __construct(PHPStanConfig $phpStanConfig, string $output)
     {
-        $this->parseOutput($config, $output);
+        $this->parseOutput($phpStanConfig, $output);
     }
 
-    private function parseOutput(PHPStanConfig $config, string $output): void
+    private function parseOutput(PHPStanConfig $phpStanConfig, string $output): void
     {
         /** @var array<string> $lines */
         $lines = preg_split("/((\r?\n)|(\r\n?))/", $output);
 
         foreach ($lines as $line) {
-            if ($config->hasParameterTypeCoverage() && !$this->hasParameterTypeCoverage()) {
+            if ($phpStanConfig->hasParameterTypeCoverage() && !$this->hasParameterTypeCoverage()) {
                 $this->parameterTypesCoverage = $this->extractParameterTypeCoverage($line);
 
                 if ($this->hasParameterTypeCoverage()) {
@@ -30,7 +33,7 @@ class PHPStanOutput
                 }
             }
 
-            if ($config->hasReturnTypeCoverage() && !$this->hasReturnTypeCoverage()) {
+            if ($phpStanConfig->hasReturnTypeCoverage() && !$this->hasReturnTypeCoverage()) {
                 $this->returnTypesCoverage = $this->extractReturnTypeCoverage($line);
 
                 if ($this->hasReturnTypeCoverage()) {
@@ -38,7 +41,7 @@ class PHPStanOutput
                 }
             }
 
-            if ($config->hasPropertyTypeCoverage() && !$this->hasPropertyTypeCoverage()) {
+            if ($phpStanConfig->hasPropertyTypeCoverage() && !$this->hasPropertyTypeCoverage()) {
                 $this->propertyTypesCoverage = $this->extractPropertyTypeCoverage($line);
 
                 if ($this->hasPropertyTypeCoverage()) {
@@ -46,7 +49,7 @@ class PHPStanOutput
                 }
             }
 
-            if ($config->hasDeclareStrictTypesCoverage() && !$this->hasDeclareStrictTypesCoverage()) {
+            if ($phpStanConfig->hasDeclareStrictTypesCoverage() && !$this->hasDeclareStrictTypesCoverage()) {
                 $this->declareStrictTypesCoverage = $this->extractDeclareStrictTypesCoverage($line);
             }
 

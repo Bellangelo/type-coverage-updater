@@ -28,8 +28,8 @@ class PHPStanConfig
     {
         try {
             $configuration = (array) Neon::decodeFile($configurationFile);
-        } catch (Exception $e) {
-            throw new CouldNotOpenConfigurationFileException($e->getMessage());
+        } catch (Exception $exception) {
+            throw new CouldNotOpenConfigurationFileException($exception->getMessage());
         }
 
         $this->configuration = $configuration;
@@ -118,30 +118,34 @@ class PHPStanConfig
         return $self;
     }
 
-    public function withAnalysis(PHPStanOutput $output): self
+    public function withAnalysis(PHPStanOutput $phpStanOutput): self
     {
         $self = clone $this;
 
-        if ($output->hasReturnTypeCoverage()) {
-            $self->configuration['parameters']['type_coverage']['return_type'] = $output->getReturnTypeCoverage();
+        if ($phpStanOutput->hasReturnTypeCoverage()) {
+            $self->configuration['parameters']['type_coverage']['return_type'] =
+                $phpStanOutput->getReturnTypeCoverage();
         } elseif ($self->hasReturnTypeCoverage()) {
             $self->configuration['parameters']['type_coverage']['return_type'] = 100.0;
         }
 
-        if ($output->hasParameterTypeCoverage()) {
-            $self->configuration['parameters']['type_coverage']['param_type'] = $output->getParameterTypeCoverage();
+        if ($phpStanOutput->hasParameterTypeCoverage()) {
+            $self->configuration['parameters']['type_coverage']['param_type'] =
+                $phpStanOutput->getParameterTypeCoverage();
         } elseif ($self->hasParameterTypeCoverage()) {
             $self->configuration['parameters']['type_coverage']['param_type'] = 100.0;
         }
 
-        if ($output->hasPropertyTypeCoverage()) {
-            $self->configuration['parameters']['type_coverage']['property_type'] = $output->getPropertyTypeCoverage();
+        if ($phpStanOutput->hasPropertyTypeCoverage()) {
+            $self->configuration['parameters']['type_coverage']['property_type'] =
+                $phpStanOutput->getPropertyTypeCoverage();
         } elseif ($self->hasPropertyTypeCoverage()) {
             $self->configuration['parameters']['type_coverage']['property_type'] = 100.0;
         }
 
-        if ($output->hasDeclareStrictTypesCoverage()) {
-            $self->configuration['parameters']['type_coverage']['declare'] = $output->getDeclareStrictTypesCoverage();
+        if ($phpStanOutput->hasDeclareStrictTypesCoverage()) {
+            $self->configuration['parameters']['type_coverage']['declare'] =
+                $phpStanOutput->getDeclareStrictTypesCoverage();
         } elseif ($self->hasDeclareStrictTypesCoverage()) {
             $self->configuration['parameters']['type_coverage']['declare'] = 100.0;
         }
