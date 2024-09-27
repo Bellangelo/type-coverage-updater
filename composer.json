@@ -19,7 +19,8 @@
         "phpunit/phpunit": "^11.3",
         "phpstan/phpstan": "^1.12",
         "tomasvotruba/type-coverage": "^0.3.1",
-        "rector/swiss-knife": "^0.2.35"
+        "rector/swiss-knife": "^0.2.35",
+        "rector/rector": "^1.2"
     },
     "license": "MIT",
     "autoload": {
