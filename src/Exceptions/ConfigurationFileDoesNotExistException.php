@@ -6,6 +6,6 @@ namespace Bellangelo\TypeCoverageUpdater\Exceptions;
 
 use Exception;
 
-class ConfigurationFileDoesNotExistException extends Exception
+final class ConfigurationFileDoesNotExistException extends Exception
 {
 }

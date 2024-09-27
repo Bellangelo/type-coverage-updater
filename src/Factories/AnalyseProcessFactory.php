@@ -6,7 +6,7 @@ namespace Bellangelo\TypeCoverageUpdater\Factories;
 
 use Symfony\Component\Process\Process;
 
-class AnalyseProcessFactory
+final class AnalyseProcessFactory
 {
     private const string MEMORY_LIMIT = '4G';
     private const int TIMEOUT_IN_SECONDS = 600;

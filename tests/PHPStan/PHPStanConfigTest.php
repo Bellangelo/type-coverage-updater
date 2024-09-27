@@ -9,7 +9,7 @@ use Bellangelo\TypeCoverageUpdater\PHPStan\PHPStanConfig;
 use Bellangelo\TypeCoverageUpdater\PHPStan\PHPStanOutput;
 use PHPUnit\Framework\TestCase;
 
-class PHPStanConfigTest extends TestCase
+final class PHPStanConfigTest extends TestCase
 {
     public function testConfigurationFileDoesNotExist(): void
     {

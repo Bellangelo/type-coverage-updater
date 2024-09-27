@@ -7,7 +7,7 @@ namespace Bellangelo\TypeCoverageUpdater\Tests\Factories;
 use Bellangelo\TypeCoverageUpdater\Factories\AnalyseProcessFactory;
 use PHPUnit\Framework\TestCase;
 
-class AnalyseProcessFactoryTest extends TestCase
+final class AnalyseProcessFactoryTest extends TestCase
 {
     public function testCreateAnalyseProcess(): void
     {

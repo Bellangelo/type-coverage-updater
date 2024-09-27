@@ -7,7 +7,7 @@ namespace Bellangelo\TypeCoverageUpdater\Factories;
 use Bellangelo\TypeCoverageUpdater\Exceptions\ConfigurationFileDoesNotExistException;
 use Bellangelo\TypeCoverageUpdater\PHPStan\PHPStanConfig;
 
-class PHPStanConfigFactory
+final class PHPStanConfigFactory
 {
     private const array CONFIG_FILES = [
         'phpstan.neon',

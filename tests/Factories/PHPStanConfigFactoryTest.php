@@ -9,7 +9,7 @@ use Bellangelo\TypeCoverageUpdater\Factories\PHPStanConfigFactory;
 use Bellangelo\TypeCoverageUpdater\PHPStan\PHPStanConfig;
 use PHPUnit\Framework\TestCase;
 
-class PHPStanConfigFactoryTest extends TestCase
+final class PHPStanConfigFactoryTest extends TestCase
 {
     public function testCouldNotFindConfigFile(): void
     {

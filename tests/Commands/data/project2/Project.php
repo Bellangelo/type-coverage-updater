@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Bellangelo\TypeCoverageUpdater\Tests\Commands\data\project2;
 
-class Project
+final class Project
 {
     private string $other;
 

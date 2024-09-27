@@ -8,7 +8,7 @@ use Bellangelo\TypeCoverageUpdater\PHPStan\PHPStanConfig;
 use Bellangelo\TypeCoverageUpdater\PHPStan\PHPStanOutput;
 use PHPUnit\Framework\TestCase;
 
-class PHPStanOutputTest extends TestCase
+final class PHPStanOutputTest extends TestCase
 {
     public function testHappyPath(): void
     {

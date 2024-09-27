@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Component\Process\Process;
 
-class UpdateCommandTest extends TestCase
+final class UpdateCommandTest extends TestCase
 {
     private function getCommand(): UpdateCommand
     {

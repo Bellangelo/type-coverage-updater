@@ -6,6 +6,6 @@ namespace Bellangelo\TypeCoverageUpdater\Exceptions;
 
 use Exception;
 
-class CouldNotOpenConfigurationFileException extends Exception
+final class CouldNotOpenConfigurationFileException extends Exception
 {
 }

@@ -2,7 +2,7 @@
 
 namespace Bellangelo\TypeCoverageUpdater\Tests\Commands\data\project1;
 
-class Project
+final class Project
 {
     private string $other;
     private $otherOfOther;
