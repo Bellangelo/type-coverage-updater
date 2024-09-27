@@ -10,7 +10,7 @@ final class AnalyseProcessFactory
 {
     private const string MEMORY_LIMIT = '4G';
 
-    private const int TIMEOUT_IN_SECONDS = 600;
+    private const int TIMEOUT_IN_SECONDS = 900;
 
     public function create(string $configurationFile): Process
     {
