@@ -13,7 +13,6 @@ runs:
           coverage: none
 
     -   uses: ramsey/composer-install@v2
-        shell: bash
 
     # downgrade /src to PHP 7.4
     -   run: vendor/bin/rector process src bin --config build/rector-downgrade-php-74.php --ansi
