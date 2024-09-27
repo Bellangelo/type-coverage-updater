@@ -1,0 +1,21 @@
+name: Downgrade PHP 8.3 to PHP 7.4
+
+runs:
+  using: composite
+
+  steps:
+    -   uses: actions/checkout@v2
+
+    -   uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.3
+          coverage: none
+
+    -   uses: ramsey/composer-install@v2
+
+    # downgrade /src to PHP 7.4
+    -   run: vendor/bin/rector process src bin --config build/rector-downgrade-php-74.php --ansi
+
+    # copy PHP 7.4 composer
+    -   run: cp build/composer-php-74.json composer.json
+    -   run: cp build/composer-php-74.lock composer.lock
