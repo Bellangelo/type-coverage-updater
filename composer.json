@@ -1,45 +1,27 @@
 {
-    "name": "bellangelo/type-coverage-updater",
-    "description": "A tool to auto-update the type coverage of this Tomas's Type Coverage extension https://github.com/TomasVotruba/type-coverage",
-    "type": "library",
-    "bin": [
-        "bin/type-coverage-updater",
-        "bin/type-coverage-updater.php"
-    ],
-    "scripts": {
-        "phpcs": "./vendor/bin/phpcs --standard=PSR12 src tests",
-        "phpcs:fix": "./vendor/bin/phpcbf --standard=PSR12 src tests",
-        "phpstan": "./vendor/bin/phpstan analyse -c phpstan.neon",
-        "tests": "./vendor/bin/phpunit tests",
-        "finalise-classes": "vendor/bin/swiss-knife finalize-classes src tests --skip-mocked",
-        "rector": "vendor/bin/rector process --config rector.php",
-        "docker:shell": "docker run --rm --interactive --tty --volume $PWD:/app composer /bin/sh"
-    },
-    "require-dev": {
-        "squizlabs/php_codesniffer": "^3.10",
-        "phpunit/phpunit": "^11.3",
-        "phpstan/phpstan": "^1.12",
-        "tomasvotruba/type-coverage": "^0.3.1",
-        "rector/swiss-knife": "^0.2.35",
-        "rector/rector": "^1.2"
-    },
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Bellangelo\\TypeCoverageUpdater\\": "src/",
-            "Bellangelo\\TypeCoverageUpdater\\Tests\\": "tests/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Aggelos Bellos",
-            "email": "aggelosbellos7@gmail.com"
-        }
-    ],
-    "require": {
-        "php": ">=8.3",
-        "nette/neon": "^3.4",
-        "symfony/console": "^7.1",
-        "symfony/process": "7.0.*"
+  "name": "bellangelo/type-coverage-updater",
+  "description": "A tool to auto-update the type coverage of this Tomas's Type Coverage extension https://github.com/TomasVotruba/type-coverage",
+  "type": "library",
+  "bin": [
+    "bin/type-coverage-updater",
+    "bin/type-coverage-updater.php"
+  ],
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Bellangelo\\TypeCoverageUpdater\\": "src/"
     }
+  },
+  "authors": [
+    {
+      "name": "Aggelos Bellos",
+      "email": "aggelosbellos7@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.4 || ^8.3",
+    "nette/neon": "^3.3",
+    "symfony/console": "^5.4",
+    "symfony/process": "^5.4"
+  }
 }

@@ -9,7 +9,10 @@ use Bellangelo\TypeCoverageUpdater\PHPStan\PHPStanConfig;
 
 final class PHPStanConfigFactory
 {
-    private const array CONFIG_FILES = [
+    /**
+     * @var mixed[]
+     */
+    private const CONFIG_FILES = [
         'phpstan.neon',
         'phpstan.neon.dist',
     ];
