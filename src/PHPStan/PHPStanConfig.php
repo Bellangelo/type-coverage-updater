@@ -10,7 +10,11 @@ use Nette\Neon\Neon;
 
 class PHPStanConfig
 {
-    private const string TEMP_FILE = 'phpstan.temp.neon';
+    private string $configurationFile;
+    /**
+     * @var string
+     */
+    private const TEMP_FILE = 'phpstan.temp.neon';
 
     /**
      * @var array{
@@ -19,8 +23,9 @@ class PHPStanConfig
      */
     private array $configuration;
 
-    public function __construct(private string $configurationFile)
+    public function __construct(string $configurationFile)
     {
+        $this->configurationFile = $configurationFile;
         $this->loadConfiguration($configurationFile);
     }
 
